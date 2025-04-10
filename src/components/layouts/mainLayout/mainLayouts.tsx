@@ -1,6 +1,6 @@
 import Navber from "@/components/shared/navber/Navber";
 
-const mainLayouts = () => {
+const MainLayouts = () => {
   return (
     <div>
       <div className="flex flex-col min-h-screen ">
@@ -12,4 +12,4 @@ const mainLayouts = () => {
   );
 };
 
-export default mainLayouts;
+export default MainLayouts;
