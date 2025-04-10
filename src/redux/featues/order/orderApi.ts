@@ -1,45 +1,41 @@
 import { baseApi } from "@/redux/api/baseApi";
 import { IOrderResponse, TResponseRedux } from "@/types/types";
 
-// Define the order API with various endpoints
 const orderApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    // Query to fetch all orders
-    fetchAllOrders: builder.query({
+    allOrders: builder.query({
       query: () => ({
-        url: "/orders",
+        url: `/orders`,
         method: "GET",
       }),
-      transformResponse: (response: TResponseRedux<IOrderResponse[] | []>) => ({
-        data: response.data,
-        meta: response.meta,
-      }),
+      transformResponse: (response: TResponseRedux<IOrderResponse[] | []>) => {
+        return {
+          data: response.data,
+          meta: response.meta,
+        };
+      },
       providesTags: ["order"],
     }),
 
-    // Query to fetch revenue data
-    getRevenue: builder.query({
+    revenue: builder.query({
       query: () => ({
-        url: "/orders/revenue",
+        url: `/orders/revenue`,
         method: "GET",
       }),
       providesTags: ["revenue"],
     }),
-
-    //  create a new order
-    createNewOrder: builder.mutation({
+    createOrder: builder.mutation({
       query: (data) => ({
-        url: "/orders",
+        url: `/orders`,
         method: "POST",
         body: data,
       }),
+
       invalidatesTags: ["order", "product", "revenue"],
     }),
-
-    // verify an order
-    confirmOrder: builder.mutation({
+    verifyOrder: builder.mutation({
       query: (data) => ({
-        url: "/orders/verify",
+        url: `/orders/verify`,
         method: "PATCH",
         body: data,
       }),
@@ -49,8 +45,8 @@ const orderApi = baseApi.injectEndpoints({
 });
 
 export const {
-  useCreateNewOrderMutation,
-  useFetchAllOrdersQuery,
-  useConfirmOrderMutation,
-  useGetRevenueQuery,
+  useCreateOrderMutation,
+  useAllOrdersQuery,
+  useVerifyOrderMutation,
+  useRevenueQuery,
 } = orderApi;

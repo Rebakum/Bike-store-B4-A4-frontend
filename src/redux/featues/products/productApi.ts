@@ -3,8 +3,7 @@ import { IBikeResponse, TResponseRedux } from "@/types/types";
 
 const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    // Query to fetch all products with optional filters
-    fetchAllProducts: builder.query({
+    allProducts: builder.query({
       query: (
         params: {
           searchTerm?: string;
@@ -38,10 +37,10 @@ const productApi = baseApi.injectEndpoints({
         data: response.data,
         meta: response.meta,
       }),
-      providesTags: ["product"], // Cache invalidation for "product" tag
+      providesTags: ["product"],
     }),
 
-    fetchSpecificProduct: builder.query({
+    specificProducts: builder.query({
       query: (id) => ({
         url: `/products/${id}`,
         method: "GET",
@@ -49,8 +48,7 @@ const productApi = baseApi.injectEndpoints({
       providesTags: ["product"],
     }),
 
-    //  create a new product
-    addProduct: builder.mutation({
+    createProduct: builder.mutation({
       query: (data) => ({
         url: `/products`,
         method: "POST",
@@ -59,7 +57,7 @@ const productApi = baseApi.injectEndpoints({
       invalidatesTags: ["product"],
     }),
 
-    editProduct: builder.mutation({
+    updateProduct: builder.mutation({
       query: ({ data, id }) => ({
         url: `/products/${id}`,
         method: "PUT",
@@ -68,7 +66,7 @@ const productApi = baseApi.injectEndpoints({
       invalidatesTags: ["product"],
     }),
 
-    removeProduct: builder.mutation({
+    deleteProduct: builder.mutation({
       query: (id) => ({
         url: `/products/${id}`,
         method: "DELETE",
@@ -79,9 +77,9 @@ const productApi = baseApi.injectEndpoints({
 });
 
 export const {
-  useFetchAllProductsQuery,
-  useAddProductMutation,
-  useEditProductMutation,
-  useRemoveProductMutation,
-  useFetchSpecificProductQuery,
+  useAllProductsQuery,
+  useCreateProductMutation,
+  useUpdateProductMutation,
+  useDeleteProductMutation,
+  useSpecificProductsQuery,
 } = productApi;
