@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import ScrollToTop from "../shared/ScrollToTop";
-import Navber from "../shared/navber/Navber";
+import Navber from "../shared/navbar/Navbar";
 
 const MainLayout = () => {
   return (
