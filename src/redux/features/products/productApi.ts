@@ -34,6 +34,7 @@ const productApi = baseApi.injectEndpoints({
       }),
       providesTags: ["product"],
     }),
+
     
 
     specificProducts: builder.query({

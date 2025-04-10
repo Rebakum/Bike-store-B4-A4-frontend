@@ -1,4 +1,7 @@
 import MainLayout from "@/components/layout/MainLayout";
+
+import AllProducts from "@/pages/AllProducts";
+import ProductDetails from "@/pages/ProductDetails";
 import SignUpPage from "@/pages/SignUpPage";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
@@ -12,6 +15,14 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/bikes",
+        element: <AllProducts />,
+      },
+      {
+        path: "/details/:id",
+        element: <ProductDetails />,
       },
     ],
   },
