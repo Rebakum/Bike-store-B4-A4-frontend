@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 
 const BackHome = ({ message }: { message: string }) => {
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
-      <h3 className="uppercase text-2xl  text-primary-red"> {message}</h3>
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h3 className="text-2xl uppercase text-primary-red"> {message}</h3>
       <Link to="/">
-        <button className="border px-5 py-2 rounded-md border-primary-red text-primary-red font-bold text-lg mt-5 hover:bg-primary-red hover:text-white duration-300">Back</button>
+        <button className="px-5 py-2 mt-5 text-lg font-bold duration-300 border rounded-md border-primary-red text-primary-red hover:bg-primary-red hover:text-white">
+          Back
+        </button>
       </Link>
     </div>
   );
