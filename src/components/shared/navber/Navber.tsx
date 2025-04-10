@@ -28,10 +28,11 @@ const Navber = () => {
       to="/cart"
       className="relative p-2 hover:scale-105 transition-all duration-300"
     >
-      <BiCartAdd className="w-8 h-8 text-white" />
+      <BiCartAdd className="w-8 h-8 " />
 
-      <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-2 py-1">
-        {/* {cartData?.items?.length} */} cart data
+      <span className="absolute -top-2 -right-2 bg-black text-white  text-sm font-black rounded-full px-2 py-1">
+        {/* {cartData?.items?.length} cart data  */}
+        {/* if cart item add then implement dianamic cart data */} 0
       </span>
     </Link>
   );
@@ -71,10 +72,10 @@ const Navber = () => {
           </nav>
 
           {/* Right Side - Cart & Login/Profile */}
-          <div className="hidden lg:flex items-center gap-5">
+          <div className="hidden lg:flex items-center gap-10">
             {/* Cart */}
             {CartIcon}
-            {/* Profile/Login Button */}
+            {/* Profile/Login Button with dianamic add user data form data base*/}
             {/* {isUser ? (
               <ProfileDropdown user={isUser as TUser} />
             ) : (
@@ -87,7 +88,12 @@ const Navber = () => {
                 </Button>
               </Link>
             )} */}
-            profile
+            {/* Profile/Login Button with static*/}
+            <Link to="/login">
+              <Button className="text-black bg-white shadow-none capitalize font-medium text-lg hover:shadow-md h-10 hover:text-white">
+                login
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Navbar - Drawer */}
@@ -95,7 +101,7 @@ const Navber = () => {
             <Sheet>
               <SheetTrigger asChild>
                 <div className="flex items-center gap-2">
-                  <div className="flex  gap-3 items-center">
+                  <div className="flex  gap-6 items-center">
                     {/* Cart */}
                     {CartIcon}
                     {/* <Link
@@ -122,7 +128,11 @@ const Navber = () => {
                         </Button>
                       </Link> 
                     )} */}
-                    profile
+                    <Link to="/login">
+                      <Button className="text-black bg-white shadow-none capitalize font-medium text-lg hover:shadow-md h-10 hover:text-white">
+                        Log in
+                      </Button>
+                    </Link>
                   </div>
                   <Button variant="outline" size="icon">
                     <Menu className="size-4" />
