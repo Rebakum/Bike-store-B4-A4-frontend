@@ -22,7 +22,7 @@ const menuList = [
 ];
 
 //
-const Navber = () => {
+const Navbar = () => {
   const CartIcon = (
     <Link
       to="/cart"
@@ -179,4 +179,4 @@ const Navber = () => {
   );
 };
 
-export default Navber;
+export default Navbar;
