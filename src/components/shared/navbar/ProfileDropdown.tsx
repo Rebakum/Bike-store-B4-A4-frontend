@@ -6,7 +6,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
-import { useAuthMeQuery, useLogOutMutation } from "@/redux/features/auth/authApi";
+import {
+  useAuthMeQuery,
+  useLogOutMutation,
+} from "@/redux/features/auth/authApi";
 import { useAppDispatch } from "@/redux/hooks";
 import { logout } from "@/redux/features/auth/authSlice";
 import { Link } from "react-router-dom";
@@ -15,39 +18,46 @@ import { Button } from "@/components/ui/button";
 
 export function ProfileDropdown({ user }: { user: TUser }) {
   const dispatch = useAppDispatch();
-    const {  data } = useAuthMeQuery(undefined);
+  const { data } = useAuthMeQuery(undefined);
   const [logOut] = useLogOutMutation();
   const handleLogOut = async () => {
     dispatch(logout());
     toast.success("logout!");
     await logOut({});
   };
-  // console.log(data,"update")
+
   return (
     <DropdownMenu>
+      {/* profile image */}
       <DropdownMenuTrigger>
         <Avatar className="cursor-pointer">
           <AvatarImage
-            src={data?.data?.profileImage ||  "https://github.com/shadcn.png"}
+            src={data?.data?.profileImage || "https://github.com/shadcn.png"}
             alt="profile image"
           />
           <AvatarFallback>Profile</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
+      {/* profile info */}
       <DropdownMenuContent className="mt-5 w-56  mr-20">
+        {/* profile name */}
         <DropdownMenuItem className="flex flex-col items-center">
           <h1 className="w-full text-xl font-semibold text-center">
-            {user.name.length >15 ? `${user?.name.slice(0,10)}...` :user.name }
+            {user.name.length > 15
+              ? `${user?.name.slice(0, 10)}...`
+              : user.name}
           </h1>
         </DropdownMenuItem>
+        {/* menu */}
         <DropdownMenuItem>
+          {}
           {user?.role === "admin" ? (
             <Link to={"/admin/dashboard"} className="w-full">
               <Button
                 variant={"outline"}
                 className="w-full hover:text-primary-red"
               >
-                 Dashboard
+                Dashboard
               </Button>
             </Link>
           ) : (
@@ -56,7 +66,7 @@ export function ProfileDropdown({ user }: { user: TUser }) {
                 variant={"outline"}
                 className="w-full hover:text-primary-red"
               >
-             Dashboard
+                Dashboard
               </Button>
             </Link>
           )}
@@ -72,32 +82,5 @@ export function ProfileDropdown({ user }: { user: TUser }) {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-    // <DropdownMenu>
-    //   <DropdownMenuTrigger asChild>
-    //     <Avatar className="cursor-pointer">
-    //       <AvatarImage
-    //         src="https://github.com/shadcn.png"
-    //         alt="profile image"
-    //       />
-    //       <AvatarFallback>Profile</AvatarFallback>
-    //     </Avatar>
-    //   </DropdownMenuTrigger>
-    //   <DropdownMenuContent className="w-48 mt-8 p-2  ">
-    //     <DropdownMenuItem className="cursor-pointer border-b hover:text-primary-red">
-    //       {user?.name}
-    //     </DropdownMenuItem>
-    //     <Link to="/dashboard">
-    //       <DropdownMenuItem className="cursor-pointer border-b hover:text-primary-red">
-    //         Dashboard
-    //       </DropdownMenuItem>
-    //     </Link>
-    //     <DropdownMenuItem
-    //       className="cursor-pointer hover:text-primary-red"
-    //       onClick={handleLogOut}
-    //     >
-    //       Log out
-    //     </DropdownMenuItem>
-    //   </DropdownMenuContent>
-    // </DropdownMenu>
   );
 }
