@@ -1,21 +1,23 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import authSlice from "./features/auth/authSlice";
+import cartSlice from "./features/cart/cartSlice";
 import {
-  FLUSH,
-  PAUSE,
-  PERSIST,
   persistReducer,
   persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
   PURGE,
   REGISTER,
-  REHYDRATE,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { baseApi } from "./api/baseApi";
-import authSlice from "./features/auth/authSlice";
 
 export const rootReducer = combineReducers({
   [baseApi.reducerPath]: baseApi.reducer,
-  auth: authSlice,
+    auth: authSlice,
+  cart: cartSlice,
 });
 const persistConfig = {
   key: "BikeAuth",
@@ -25,7 +27,7 @@ const persistConfig = {
 const persistedAuthReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: persistedAuthReducer,
+  reducer:persistedAuthReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

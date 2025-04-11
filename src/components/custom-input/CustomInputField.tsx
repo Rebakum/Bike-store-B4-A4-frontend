@@ -9,51 +9,46 @@ import {
 import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
 
-//  FormInput component
-interface FormInputProps<T extends FieldValues> {
-  fieldName: Path<T>;
-  labelText: string;
-  placeholderText?: string;
-  inputType?: string;
-  formControl: Control<T>;
+interface InputFieldProps<T extends FieldValues> {
+  name: Path<T>; // Ensures that the name matches a field in your schema
+  label: string;
+  placeholder?: string;
+  type?: string;
+  control: Control<T>; // Tied to the form's specific type
 }
 
-// Generic functional component for a form input
-const FormInput = <T extends FieldValues>({
-  fieldName,
-  labelText,
-  placeholderText,
-  inputType,
-  formControl,
-}: FormInputProps<T>) => {
+const CustomInputField = <T extends FieldValues>({
+  name,
+  label,
+  placeholder,
+  type,
+  control,
+}: InputFieldProps<T>) => {
   return (
     <FormField
-      control={formControl}
-      name={fieldName}
+      control={control}
+      name={name}
       render={({ field, fieldState }) => (
         <FormItem className="grid gap-2">
-          {/* Label for the input */}
-          <FormLabel htmlFor={fieldName}>{labelText}</FormLabel>
-
+          <FormLabel htmlFor={name}>{label}</FormLabel>
           <FormControl>
-            {inputType === "password" ? (
+            {type === "password" ? (
               <PasswordInput
-                id={fieldName}
-                placeholder={placeholderText}
+                id={name}
+                placeholder={placeholder}
                 autoComplete="current-password"
                 {...field}
               />
             ) : (
               <Input
-                id={fieldName}
-                placeholder={placeholderText}
-                type={inputType}
-                autoComplete={inputType === "email" ? "email" : "off"}
+                id={name}
+                placeholder={placeholder}
+                type={type}
+                autoComplete={type === "email" ? "email" : "off"}
                 {...field}
               />
             )}
           </FormControl>
-
           {fieldState.error && (
             <FormMessage>{fieldState.error.message}</FormMessage>
           )}
@@ -63,4 +58,4 @@ const FormInput = <T extends FieldValues>({
   );
 };
 
-export default FormInput;
+export default CustomInputField;

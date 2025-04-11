@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { Input } from "@/components/ui/input";
 
 import {
   Form,
@@ -13,8 +14,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
+import CustomInputField from "@/components/custom-input/CustomInputField";
 
 // Schema for contact form validation
 const formSchema = z.object({
@@ -57,110 +59,65 @@ export default function ContactFormPreview() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-10">
-          {/* Contact Info */}
-          <div className="bg-blue-900 p-8 rounded-md shadow-md text-white">
-            <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
-
-            <div className="space-y-4 text-sm">
-              <div className="flex items-start gap-3">
-                <FaMapMarkerAlt className="mt-1 text-lg" />
-                <div>
-                  <p className="font-semibold">Our Address</p>
-                  <p>Gazipur, Dhaka, Bangladesh</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <FaPhone className="mt-1 text-lg" />
-                <div>
-                  <p className="font-semibold">Phone</p>
-                  <p>+880 123-456-7890</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <FaEnvelope className="mt-1 text-lg" />
-                <div>
-                  <p className="font-semibold">Email</p>
-                  <a
-                    href="mailto:devrakibmia@gmail.com"
-                    className="hover:text-blue-300 transition"
+          <div className="bg-[#232b3e] p-8 rounded-md shadow-md">
+            {/* Contact Form Section */}
+            <Card className="mx-auto w-full md:w-96 lg:w-96">
+              <CardHeader>
+                <CardTitle className="text-2xl text-center">
+                  Send a Message
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Form {...form}>
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="space-y-8"
                   >
-                    devrakibmia@gmail.com
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="bg-[#1c2437] p-8 rounded-md shadow-md">
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-6"
-              >
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Your name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="email"
-                          placeholder="Your email"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Message</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Write your message..."
-                          rows={4}
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                      <div className="text-right text-xs text-gray-400">
-                        Max. 500 characters
-                      </div>
-                    </FormItem>
-                  )}
-                />
-
-                <Button
-                  type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700"
-                >
-                  Send Message
-                </Button>
-              </form>
-            </Form>
+                    <div className="grid gap-4">
+                      <CustomInputField
+                        name="name"
+                        label="Full Name"
+                        placeholder="Enter Full Name"
+                        type="text"
+                        control={form.control}
+                      />
+                      <CustomInputField
+                        name="email"
+                        label="Email"
+                        placeholder="Enter email address"
+                        type="email"
+                        control={form.control}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem className="grid gap-2">
+                            <FormLabel htmlFor="message">Message</FormLabel>
+                            <FormControl>
+                              <Textarea
+                                id="message"
+                                placeholder="Your message..."
+                                autoComplete="off"
+                                rows={4}
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <Button
+                        type="submit"
+                        className="w-full bg-blue-600 hover:bg-blue-700"
+                      >
+                        Send Message
+                      </Button>
+                    </div>
+                  </form>
+                </Form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
