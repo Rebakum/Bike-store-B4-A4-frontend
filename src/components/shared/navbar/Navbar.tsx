@@ -1,7 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
 import { BiCartAdd } from "react-icons/bi";
+
+import { Link, useLocation } from "react-router-dom";
+import { ProfileDropdown } from "./ProfileDropdown";
+
 import {
   Sheet,
   SheetContent,
@@ -9,10 +12,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { TUser } from "@/types/types";
+
 // brand fro logo
 import brand from "@/assets/images/logo/Bike_Shop_Logo.png";
 //
+
+import { selectCurrentToken } from "@/redux/features/auth/authSlice";
+import { useAppSelector } from "@/redux/hooks";
+import { verifyToken } from "@/utils/verifyToken";
+
 const menuList = [
   { id: 1, name: "HOME", link: "/" },
   { id: 2, name: "All PRODUCTS", link: "/bikes" },
@@ -22,35 +31,41 @@ const menuList = [
 ];
 
 //
-const Navber = () => {
+const Navbar = () => {
+  const token = useAppSelector(selectCurrentToken);
+
+  const cartData = useAppSelector((state) => state.cart);
+  const location = useLocation();
+
+  // console.log(cartData,"cartData")
+  const isUser = token ? verifyToken(token) : null;
   const CartIcon = (
     <Link
       to="/cart"
-      className="relative p-2 hover:scale-105 transition-all duration-300"
+      className="relative p-2 transition-all duration-300 hover:scale-105"
     >
-      <BiCartAdd className="w-8 h-8 " />
+      <BiCartAdd className="w-8 h-8 text-black" />
 
-      <span className="absolute -top-2 -right-2 bg-black text-white  text-sm font-black rounded-full px-2 py-1">
-        {/* {cartData?.items?.length} cart data  */}
-        {/* if cart item add then implement dianamic cart data */} 0
+      <span className="absolute px-2 py-1 text-xs text-white bg-red-600 rounded-full -top-2 -right-2">
+        {cartData?.items?.length}
       </span>
     </Link>
   );
   return (
     <div>
       <section className="sticky top-0 z-50">
-        <div className="container mx-auto flex justify-between items-center px-4 lg:px-0">
+        <div className="container flex items-center justify-between px-4 mx-auto lg:px-0">
           {/* Left Side - Logo */}
           <div className="flex items-center">
             <Link to={"/"}>
-              <div className=" text-3xl text-white font-bold capitalize">
-                <img className=" w-56" src={brand} alt="bike store brand" />
+              <div className="text-3xl font-bold text-white capitalize ">
+                <img className="w-56 " src={brand} alt="bike shop brand" />
               </div>
             </Link>
           </div>
 
           {/* Middle - Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="items-center hidden gap-6 lg:flex">
             <ul className="flex gap-6 font-bold">
               {menuList.map((item) => (
                 <li className="relative group" key={item.id}>
@@ -72,28 +87,25 @@ const Navber = () => {
           </nav>
 
           {/* Right Side - Cart & Login/Profile */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="items-center hidden gap-10 lg:flex">
             {/* Cart */}
             {CartIcon}
             {/* Profile/Login Button with dianamic add user data form data base*/}
-            {/* {isUser ? (
+            {isUser ? (
               <ProfileDropdown user={isUser as TUser} />
             ) : (
               <Link to="/login">
-                <Button
-                  variant="outline"
-                  className="text-primary-red font-semibold text-lg hover:shadow-md h-10"
-                >
+                <Button className="h-10 text-lg font-medium text-black capitalize bg-white border-2 shadow-none hover:shadow-md hover:text-white">
                   Log in
                 </Button>
               </Link>
-            )} */}
+            )}
             {/* Profile/Login Button with static*/}
-            <Link to="/login">
-              <Button className="text-black bg-white shadow-none capitalize font-medium text-lg hover:shadow-md h-10 hover:text-white">
+            {/* <Link to="/login">
+              <Button className="h-10 text-lg font-medium text-black capitalize bg-white shadow-none hover:shadow-md hover:text-white">
                 login
               </Button>
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile Navbar - Drawer */}
@@ -101,35 +113,35 @@ const Navber = () => {
             <Sheet>
               <SheetTrigger asChild>
                 <div className="flex items-center gap-2">
-                  <div className="flex  gap-6 items-center">
+                  <div className="flex items-center gap-6">
                     {/* Cart */}
                     {CartIcon}
                     {/* <Link
-                    to="/cart"
-                    className="relative p-2 hover:scale-105 transition-all duration-300"
-                  >
-                    <BiCartAdd className="w-8 h-8 text-white" />
-                    {cartItems > 0 && (
-                      <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-2 py-1">
-                        {cartItems}
-                      </span>
-                    )}
-                  </Link> */}
+                      to="/cart"
+                      className="relative p-2 transition-all duration-300 hover:scale-105"
+                    >
+                      <BiCartAdd className="w-8 h-8 text-white" />
+                      {cartItems > 0 && (
+                        <span className="absolute px-2 py-1 text-xs text-white bg-red-600 rounded-full -top-2 -right-2">
+                          {cartItems}
+                        </span>
+                      )}
+                    </Link> */}
                     {/* Login/Profile */}
-                    {/* {isUser ? (
+                    {isUser ? (
                       <ProfileDropdown user={isUser as TUser} />
                     ) : (
                       <Link to="/login">
                         <Button
                           variant="outline"
-                          className="text-primary-red font-semibold"
+                          className="font-semibold text-primary-red"
                         >
                           Log in
                         </Button>
-                      </Link> 
-                    )} */}
+                      </Link>
+                    )}
                     <Link to="/login">
-                      <Button className="text-black bg-white shadow-none capitalize font-medium text-lg hover:shadow-md h-10 hover:text-white">
+                      <Button className="h-10 text-lg font-medium text-black capitalize bg-white shadow-none hover:shadow-md hover:text-white">
                         Log in
                       </Button>
                     </Link>
@@ -151,8 +163,8 @@ const Navber = () => {
                 </SheetHeader>
 
                 {/* Mobile Menu List */}
-                <div className="mb-6 mt-6 flex flex-col gap-4">
-                  <ul className="flex flex-col font-semibold gap-6">
+                <div className="flex flex-col gap-4 mt-6 mb-6">
+                  <ul className="flex flex-col gap-6 font-semibold">
                     {menuList.map((item) => (
                       <li className="relative group" key={item?.id}>
                         <Link to={item.link}>
@@ -179,4 +191,4 @@ const Navber = () => {
   );
 };
 
-export default Navber;
+export default Navbar;
