@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
 import ScrollToTop from "../shared/ScrollToTop";
 import Navber from "../shared/navbar/Navbar";
+import Footer from "../shared/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen px-4 py-4">
+    <div className="flex flex-col min-h-screen py-4">
       <ScrollToTop />
       {/* navigetions area */}
       <div className="">
@@ -15,7 +16,9 @@ const MainLayout = () => {
         <Outlet />
       </div>
       {/* footer area */}
-      <div className=""></div>
+      <div className="">
+        <Footer />
+      </div>
     </div>
   );
 };
