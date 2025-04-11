@@ -1,5 +1,6 @@
 import MainLayout from "@/components/layout/MainLayout";
 
+import About from "@/pages/About";
 import AllProducts from "@/pages/AllProducts";
 import ProductDetails from "@/pages/ProductDetails";
 import SignUpPage from "@/pages/SignUpPage";
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <ProductDetails />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },

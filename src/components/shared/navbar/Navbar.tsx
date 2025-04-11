@@ -20,6 +20,7 @@ import brand from "@/assets/images/logo/Bike_Shop_Logo.png";
 
 import { selectCurrentToken } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
+import { RootState } from "@/redux/store";
 import { verifyToken } from "@/utils/verifyToken";
 
 const menuList = [
@@ -34,7 +35,7 @@ const menuList = [
 const Navbar = () => {
   const token = useAppSelector(selectCurrentToken);
 
-  const cartData = useAppSelector((state) => state.cart);
+  const cartData = useAppSelector((state: RootState) => state.cart);
   const location = useLocation();
 
   // console.log(cartData,"cartData")
@@ -100,12 +101,6 @@ const Navbar = () => {
                 </Button>
               </Link>
             )}
-            {/* Profile/Login Button with static*/}
-            {/* <Link to="/login">
-              <Button className="h-10 text-lg font-medium text-black capitalize bg-white shadow-none hover:shadow-md hover:text-white">
-                login
-              </Button>
-            </Link> */}
           </div>
 
           {/* Mobile Navbar - Drawer */}
@@ -116,17 +111,7 @@ const Navbar = () => {
                   <div className="flex items-center gap-6">
                     {/* Cart */}
                     {CartIcon}
-                    {/* <Link
-                      to="/cart"
-                      className="relative p-2 transition-all duration-300 hover:scale-105"
-                    >
-                      <BiCartAdd className="w-8 h-8 text-white" />
-                      {cartItems > 0 && (
-                        <span className="absolute px-2 py-1 text-xs text-white bg-red-600 rounded-full -top-2 -right-2">
-                          {cartItems}
-                        </span>
-                      )}
-                    </Link> */}
+
                     {/* Login/Profile */}
                     {isUser ? (
                       <ProfileDropdown user={isUser as TUser} />
@@ -155,9 +140,7 @@ const Navbar = () => {
                 <SheetHeader>
                   <SheetTitle>
                     <div className="flex items-center gap-2">
-                      <span className="text-lg font-semibold">
-                        ROYAL KNIGHT
-                      </span>
+                      <span className="text-lg font-semibold">Bike Shope</span>
                     </div>
                   </SheetTitle>
                 </SheetHeader>
