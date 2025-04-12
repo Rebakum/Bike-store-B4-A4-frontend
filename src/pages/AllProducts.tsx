@@ -7,7 +7,7 @@ import { useMemo, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { BiCart } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { TbListDetails } from "react-icons/tb";
+
 export default function AllProducts() {
   const dispatch = useAppDispatch();
 
@@ -62,14 +62,19 @@ export default function AllProducts() {
   }
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen bg-gray-100">
       <div className="container px-4 mx-auto md:px-0">
-        <h1 className="py-10 text-4xl font-light text-center text-black uppercase">
+        <h1 className="py-3 text-4xl font-bold text-center text-gray-950">
           All Products
         </h1>
+        <div className="flex items-center justify-center mt-2">
+          <div className="w-12 h-0.5 bg-teal-700 mr-2"></div>
+          <div className="w-3 h-3 rotate-45 bg-teal-700"></div>
+          <div className="w-12 h-0.5 bg-teal-700 ml-2"></div>
+        </div>
 
         {/* Search and Filters */}
-        <div className="flex flex-col gap-4 mb-6 md:flex-row bg-gray-100 p-5">
+        <div className="flex flex-col gap-4 mt-10 mb-6 md:flex-row">
           <input
             type="text"
             name="searchTerm"
@@ -125,14 +130,12 @@ export default function AllProducts() {
         </div>
 
         {/* Product Cards */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {data?.data?.map((product) => (
-            // cart
             <div
               key={product?._id}
               className="p-4 overflow-hidden transition-all bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl"
             >
-              {/* cart image */}
               <div className="relative">
                 <img
                   src={product.image}
@@ -149,7 +152,6 @@ export default function AllProducts() {
                   {product.inStock ? "In Stock" : "Out of Stock"}
                 </Badge>
               </div>
-              {/* cart-body */}
 
               <div className="p-3">
                 <h2 className="mb-1 text-lg font-bold">{product.name}</h2>
@@ -165,21 +167,16 @@ export default function AllProducts() {
 
                 <div className="flex gap-2 mt-3">
                   <Link to={`/details/${product._id}`} className="flex-1">
-                    <button className="w-full py-2 text-sm font-semibold text-white transition-all bg-black rounded-md hover:bg-white hover:text-black hover:border-2">
-                      <div className=" flex gap-1 justify-center text-lg">
-                        <div className="mt-[6px]">
-                          <TbListDetails />
-                        </div>
-                        <div className="font-light">View Details</div>
-                      </div>
+                    <button className="w-full py-2 text-sm font-semibold text-white transition-all bg-blue-600 rounded-md hover:bg-blue-700">
+                      View Details
                     </button>
                   </Link>
 
                   <button
-                    className={`px-4 py-2 rounded ${
+                    className={`p-2 rounded-md ${
                       !product?.inStock
-                        ? "bg-primary-red cursor-not-allowed"
-                        : "bg-black "
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-primary-red hover:bg-red-700"
                     } transition-all`}
                     disabled={!product?.inStock}
                     onClick={() =>

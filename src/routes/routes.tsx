@@ -13,6 +13,7 @@ import OrderPage from "@/pages/Order/OrderPage";
 import OrderResponse from "@/pages/Order/OrderResponse";
 import ProductDetails from "@/pages/ProductDetails";
 import ProfileUpdate from "@/pages/ProfileUpdate";
+import Services from "@/pages/Service";
 import SignUpPage from "@/pages/SignUpPage";
 import UserDashboardIndex from "@/pages/user/UserDashboardIndex";
 import UserOrders from "@/pages/user/UserOrders";
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/service",
+        element: <Services />,
       },
       {
         path: "/contact",
