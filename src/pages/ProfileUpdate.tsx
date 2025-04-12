@@ -10,6 +10,7 @@ import {
   useUpdateProfileMutation,
 } from "@/redux/features/auth/authApi";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { toast } from "sonner";
 
 const ProfileUpdate = () => {
@@ -140,6 +141,12 @@ const ProfileUpdate = () => {
 
   return (
     <div className="h-auto max-w-lg p-6 mx-auto mb-5 overflow-y-auto">
+      {/* title */}
+      <div className="">
+        <Helmet>
+          <title>Profile Update - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       {/* Profile Section */}
       <Card>
         <CardHeader className="flex items-center gap-4">

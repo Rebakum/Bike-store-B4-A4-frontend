@@ -12,6 +12,7 @@ import { useSignUpMutation } from "@/redux/features/auth/authApi";
 import { selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 // Validation schema
 const formSchema = z.object({
@@ -68,6 +69,12 @@ export default function SignUpPage() {
 
   return (
     <div className="h-[100vh] grid place-content-center ">
+      {/* title */}
+      <div className="">
+        <Helmet>
+          <title>Sign Up - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       <Card className="relative w-full mx-auto md:w-96 lg:w-96">
         <p
           onClick={() => navigate("/")}

@@ -1,8 +1,14 @@
+import { Helmet } from "react-helmet-async";
 import aboutImage from "../assets/image/bike-23.jpg";
 
 export default function About() {
   return (
     <div className="py-12">
+      <div className="">
+        <Helmet>
+          <title>About - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       <div className="container px-4 mx-auto">
         <div className="pb-10">
           <h1 className="mb-3 text-4xl font-bold text-center text-primary">

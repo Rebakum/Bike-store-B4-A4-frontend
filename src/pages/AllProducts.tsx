@@ -1,13 +1,16 @@
-import LoadingSkelton from "@/components/shared/LoadingSkelton";
-import { Badge } from "@/components/ui/badge";
-import { addToCart } from "@/redux/features/cart/cartSlice";
-import { useAllProductsQuery } from "@/redux/features/products/productApi";
-import { useAppDispatch } from "@/redux/hooks";
-import { useMemo, useState } from "react";
+import { useState, useMemo } from "react";
 import { FieldValues } from "react-hook-form";
-import { BiCart } from "react-icons/bi";
-import { TbListDetails } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { useAllProductsQuery } from "@/redux/features/products/productApi";
+import { BiCart } from "react-icons/bi";
+import { Badge } from "@/components/ui/badge";
+import { useAppDispatch } from "@/redux/hooks";
+import { addToCart } from "@/redux/features/cart/cartSlice";
+import LoadingSkelton from "@/components/shared/LoadingSkelton";
+import { TbListDetails } from "react-icons/tb";
+
+import { Helmet } from "react-helmet-async";
+
 export default function AllProducts() {
   const dispatch = useAppDispatch();
 
@@ -49,8 +52,6 @@ export default function AllProducts() {
   const { data, isLoading } = useAllProductsQuery(query);
   const totalPages = data?.meta?.totalPage || 1;
 
-  console.log(data);
-
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
@@ -62,24 +63,30 @@ export default function AllProducts() {
   }
 
   return (
-    <div className="min-h-screen ">
-      <div className="container px-4 mx-auto md:px-0">
-        <h1 className="py-3 text-4xl font-light text-center uppercase text-gray-950">
+    <div className="bg-white min-h-screen">
+      <div className="">
+        <Helmet>
+          <title>All Products - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
+      <div className="container mx-auto px-4 md:px-0">
+        <h1 className="text-4xl py-4 text-black font-light text-center uppercase">
           All Products
         </h1>
-        <div className="flex items-center justify-center mt-2">
+        {/*  */}
+        <div className="flex items-center justify-center p-4">
           <div className="w-12 h-0.5 bg-[#FF0000] mr-2"></div>
           <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
           <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
         </div>
 
         {/* Search and Filters */}
-        <div className="flex flex-col gap-4 p-4 mt-10 mb-6 bg-gray-100 md:flex-row">
+        <div className="flex flex-col md:flex-row gap-4 m-4 bg-gray-100 p-4">
           <input
             type="text"
             name="searchTerm"
             placeholder="Search by brand, name, or category"
-            className="flex-1 p-2 border border-gray-300 rounded-md"
+            className="p-2 border border-gray-300 rounded-md flex-1"
             value={filters.searchTerm}
             onChange={handleFilterChange}
           />
@@ -108,12 +115,12 @@ export default function AllProducts() {
             <option value="Out of Stock">Out of Stock</option>
           </select>
 
-          <div className="flex items-center gap-2">
+          <div className="flex gap-2 items-center">
             <input
               type="number"
               name="minPrice"
               placeholder="Min Price"
-              className="w-24 p-2 border border-gray-300 rounded-md"
+              className="p-2 border border-gray-300 rounded-md w-24"
               value={filters.minPrice}
               onChange={handleFilterChange}
             />
@@ -122,7 +129,7 @@ export default function AllProducts() {
               type="number"
               name="maxPrice"
               placeholder="Max Price"
-              className="w-24 p-2 border border-gray-300 rounded-md"
+              className="p-2 border border-gray-300 rounded-md w-24"
               value={filters.maxPrice}
               onChange={handleFilterChange}
             />
@@ -130,11 +137,11 @@ export default function AllProducts() {
         </div>
 
         {/* Product Cards */}
-        <div className="grid grid-cols-1 gap-8 px-4 py-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-20 px-4 md:px-8">
           {data?.data?.map((product) => (
             <div
               key={product?._id}
-              className="p-4 overflow-hidden transition-all bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl"
+              className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all p-4 border border-gray-200"
             >
               <div className="relative">
                 <img
@@ -146,7 +153,7 @@ export default function AllProducts() {
                   className={`absolute top-2 left-2 px-3 py-1 text-xs font-semibold ${
                     product?.inStock
                       ? "bg-green-600 text-white"
-                      : "bg-[#f40707] text-white"
+                      : "bg-red-600 text-white"
                   }`}
                 >
                   {product.inStock ? "In Stock" : "Out of Stock"}
@@ -179,7 +186,7 @@ export default function AllProducts() {
                     className={`py-2 px-4 rounded-md ${
                       !product?.inStock
                         ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-primary-red hover:bg-green-600"
+                        : "bg-[#f40707] hover:bg-green-600"
                     } transition-all`}
                     disabled={!product?.inStock}
                     onClick={() =>
@@ -195,17 +202,17 @@ export default function AllProducts() {
         </div>
 
         {data?.data?.length === 0 && (
-          <div className="mt-8 text-center text-gray-500">
+          <div className="text-center mt-8 text-gray-500">
             No products match your search or filter criteria.
           </div>
         )}
 
         {/* Pagination */}
-        <div className="flex justify-center gap-4 py-8">
+        <div className="flex justify-center py-8 gap-4">
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-6 py-2 text-white transition-all duration-300 bg-teal-500 rounded-lg hover:bg-teal-600 disabled:bg-gray-600"
+            className="px-6 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 disabled:bg-gray-600 transition-all duration-300"
           >
             Prev
           </button>
@@ -215,7 +222,7 @@ export default function AllProducts() {
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-6 py-2 text-white transition-all duration-300 bg-teal-500 rounded-lg hover:bg-teal-600 disabled:bg-gray-600"
+            className="px-6 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 disabled:bg-gray-600 transition-all duration-300"
           >
             Next
           </button>

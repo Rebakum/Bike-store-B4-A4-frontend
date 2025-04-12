@@ -7,6 +7,7 @@ import {
 import { useState } from "react";
 import { toast } from "sonner";
 import { OrderProductDetails } from "../OrderProductDetails";
+import { Helmet } from "react-helmet-async";
 
 const OrderAdmin = () => {
   const { data, isLoading } = useAllOrdersQuery(undefined);
@@ -31,6 +32,12 @@ const OrderAdmin = () => {
   console.log(data, "all order");
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      {/* title */}
+      <div className="">
+        <Helmet>
+          <title>Manege Order - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       <div className="flex justify-between items-center pr-1">
         <input
           className="p-2 my-3 border-black border-2 text-black rounded-md"

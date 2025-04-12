@@ -14,6 +14,7 @@ import { selectCurrentUser, setUser } from "@/redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { verifyToken } from "@/utils/verifyToken";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 // Improved schema with additional validation rules
 const formSchema = z.object({
@@ -64,6 +65,12 @@ export default function LoginPreview() {
   }
   return (
     <div className="h-[100vh] grid place-content-center">
+      {/* title */}
+      <div className="">
+        <Helmet>
+          <title>Sing In - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       <Card className="relative w-full mx-auto md:w-96 lg:w-96">
         <p
           onClick={() => navigate("/")}
@@ -72,7 +79,7 @@ export default function LoginPreview() {
           X
         </p>
         <CardHeader>
-          <CardTitle className="text-2xl text-center">Login</CardTitle>
+          <CardTitle className="text-2xl text-center">Sign In</CardTitle>
         </CardHeader>
         <CardContent>
           <Form {...form}>
