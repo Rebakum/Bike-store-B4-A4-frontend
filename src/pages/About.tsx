@@ -60,7 +60,7 @@ export default function About() {
             <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
             <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
           </div>
-          <div className="grid grid-cols-1 gap-8 my-10 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 my-10 lg:grid-cols-3">
             <div className="p-5 text-center border rounded-sm hover:shadow-lg ">
               <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-2xl text-white rounded-full bg-primary">
                 🚴
