@@ -41,7 +41,7 @@ const OrderAdmin = () => {
         />
       </div>
       <table className="w-full  text-sm text-left rtl:text-right text-gray-500 ">
-        <thead className="text-xs text-gray-50 uppercase bg-slate-700  ">
+        <thead className="text-xs text-gray-50 uppercase bg-black ">
           <tr>
             <th scope="col" className="px-6 py-3">
               Id

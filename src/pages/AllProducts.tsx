@@ -7,7 +7,7 @@ import { useMemo, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { BiCart } from "react-icons/bi";
 import { Link } from "react-router-dom";
-
+import { TbListDetails } from "react-icons/tb";
 export default function AllProducts() {
   const dispatch = useAppDispatch();
 
@@ -62,14 +62,19 @@ export default function AllProducts() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen ">
       <div className="container px-4 mx-auto md:px-0">
-        <h1 className="py-4 text-4xl font-bold text-center text-primary-red">
+        <h1 className="py-3 text-4xl font-light text-center uppercase text-gray-950">
           All Products
         </h1>
+        <div className="flex items-center justify-center mt-2">
+          <div className="w-12 h-0.5 bg-[#FF0000] mr-2"></div>
+          <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
+          <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
+        </div>
 
         {/* Search and Filters */}
-        <div className="flex flex-col gap-4 mb-6 md:flex-row">
+        <div className="flex flex-col gap-4 mt-10 mb-6 md:flex-row bg-gray-100 p-4">
           <input
             type="text"
             name="searchTerm"
@@ -125,7 +130,7 @@ export default function AllProducts() {
         </div>
 
         {/* Product Cards */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4  px-4 py-4">
           {data?.data?.map((product) => (
             <div
               key={product?._id}
@@ -141,7 +146,7 @@ export default function AllProducts() {
                   className={`absolute top-2 left-2 px-3 py-1 text-xs font-semibold ${
                     product?.inStock
                       ? "bg-green-600 text-white"
-                      : "bg-red-600 text-white"
+                      : "bg-[#f40707] text-white"
                   }`}
                 >
                   {product.inStock ? "In Stock" : "Out of Stock"}
@@ -155,23 +160,26 @@ export default function AllProducts() {
                 </p>
                 <p className="text-lg font-medium text-gray-800">
                   Price:{" "}
-                  <span className="font-bold text-primary-red">
-                    {product.price} tk
+                  <span className="font-bold text-[#f40707] uppercase">
+                    {product.price} bdt
                   </span>
                 </p>
 
                 <div className="flex gap-2 mt-3">
                   <Link to={`/details/${product._id}`} className="flex-1">
-                    <button className="w-full py-2 text-sm font-semibold text-white transition-all bg-blue-600 rounded-md hover:bg-blue-700">
-                      View Details
+                    <button className="w-full py-2 text-base  font-bold uppercase text-white transition-all bg-black border-2 rounded-md hover:bg-white hover:text-black flex gap-4 justify-center ">
+                      <div className="mt-1">
+                        <TbListDetails />
+                      </div>
+                      <div className="">View Details</div>
                     </button>
                   </Link>
 
                   <button
-                    className={`p-2 rounded-md ${
+                    className={`py-2 px-4 rounded-md ${
                       !product?.inStock
                         ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-primary-red hover:bg-red-700"
+                        : "bg-primary-red hover:bg-green-600"
                     } transition-all`}
                     disabled={!product?.inStock}
                     onClick={() =>

@@ -67,21 +67,19 @@ const Navbar = () => {
 
           {/* Middle - Navigation Links */}
           <nav className="items-center hidden gap-6 lg:flex">
-            <ul className="flex gap-6 font-bold">
+            <ul className="flex gap-6 font-bold text-xl">
               {menuList.map((item) => (
                 <li className="relative group" key={item.id}>
                   <Link to={item.link}>
                     <span
-                      className={`cursor-pointer hover:text-primary-red transition-all duration-300 ${
-                        item.link === location.pathname
-                          ? "text-primary-red"
-                          : ""
+                      className={`cursor-pointer hover:text-[#FF0000] transition-all duration-300 ${
+                        item.link === location.pathname ? "text-[#FF0000]" : ""
                       }`}
                     >
                       {item.name}
                     </span>
                   </Link>
-                  <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-primary-red transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#FF0000] transition-all duration-300 group-hover:w-full"></span>
                 </li>
               ))}
             </ul>
@@ -125,11 +123,6 @@ const Navbar = () => {
                         </Button>
                       </Link>
                     )}
-                    <Link to="/login">
-                      <Button className="h-10 text-lg font-medium text-black capitalize bg-white shadow-none hover:shadow-md hover:text-white">
-                        Log in
-                      </Button>
-                    </Link>
                   </div>
                   <Button variant="outline" size="icon">
                     <Menu className="size-4" />
@@ -140,7 +133,11 @@ const Navbar = () => {
                 <SheetHeader>
                   <SheetTitle>
                     <div className="flex items-center gap-2">
-                      <span className="text-lg font-semibold">Bike Shope</span>
+                      <img
+                        className="w-56 "
+                        src={brand}
+                        alt="bike shop brand"
+                      />
                     </div>
                   </SheetTitle>
                 </SheetHeader>
