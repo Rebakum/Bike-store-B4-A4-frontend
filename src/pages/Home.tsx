@@ -26,7 +26,7 @@ const Home = () => {
         <NewProducts />
         <div className="flex justify-center my-10">
           <Link to="/bikes">
-            <button className="px-3 text-lg font-semibold duration-300 border-2 rounded-md pb text-primary-red border-primary-red hover:bg-primary-red hover:text-white">
+            <button className="px-4 py-2 text-lg font-semibold duration-300 border-2 rounded-md pb text-black border-black hover:border-none hover:bg-primary-red hover:text-white">
               VIEW ALL
             </button>
           </Link>
