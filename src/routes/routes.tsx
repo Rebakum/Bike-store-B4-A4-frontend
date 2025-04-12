@@ -22,6 +22,9 @@ import PrivetUserRoute from "@/utils/PrivetUserRoute";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+//import { Contact } from "lucide-react";
+import Contact from "@/pages/Contact";
+import NotFoundPage from "../pages/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +50,10 @@ export const router = createBrowserRouter([
       {
         path: "/service",
         element: <Services />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/cart",
@@ -134,5 +141,9 @@ export const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUpPage />,
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);

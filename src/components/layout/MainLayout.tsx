@@ -5,10 +5,10 @@ import Footer from "../shared/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen py-4">
+    <div className="flex flex-col min-h-screen ">
       <ScrollToTop />
       {/* navigetions area */}
-      <div className="">
+      <div className="py-4">
         <Navber />
       </div>
       {/* Main content area*/}

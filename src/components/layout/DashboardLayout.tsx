@@ -5,10 +5,9 @@ import { useAppDispatch } from "@/redux/hooks";
 import { useLogOutMutation } from "@/redux/features/auth/authApi";
 import { logout } from "@/redux/features/auth/authSlice";
 import { toast } from "sonner";
-import { CiHome } from "react-icons/ci";
-import { Button } from "../ui/button";
-
-
+import brand from "@/assets/images/logo/Bike_Shop_Logo.png";
+import { IoIosLogOut } from "react-icons/io";
+import { MdDashboard } from "react-icons/md";
 export default function DashboardLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const dispatch = useAppDispatch();
@@ -24,12 +23,16 @@ export default function DashboardLayout() {
     <div className=" md:flex h-screen w-full  overflow-auto">
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 bg-gray-800 text-white transition-all duration-300 overflow-y-auto 
-          ${isSidebarOpen ? "w-64" : "w-0"} md:w-64 md:relative`}
+        className={`fixed inset-y-0 left-0 shadow z-50 bgDark text-white transition-all duration-300 overflow-y-auto 
+          ${isSidebarOpen ? "w-80" : "w-0"} md:w-80 md:relative`}
       >
-        <div className="p-4  text-lg font-semibold border-b border-gray-700">
-        <Link to="/" className="flex  justify-center items-center gap-3"> <span>ROYAL KNIGHT</span>
-          <CiHome className="w-5 h-5 font-bold text-white "/></Link>
+        <div className="p-4 text-lg bg-white font-semibold border-b border-gray-700">
+          <Link to="/" className="flex  justify-center items-center gap-3">
+            {" "}
+            <div className="">
+              <img className=" h-10" src={brand} alt="" />
+            </div>
+          </Link>
         </div>
         <DashboardSidebar />
       </div>
@@ -45,7 +48,7 @@ export default function DashboardLayout() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* ✅ Fixed Navbar */}
-        <div className="bg-gray-100 h-16 px-4 flex items-center justify-between shadow-md fixed top-0 left-0 right-0 z-30 md:relative">
+        <div className="bg-white h-16 px-4 py-9 flex items-center justify-between shadow-md fixed top-0 left-0 right-0 z-30 md:relative">
           {/* Sidebar Toggle Button */}
           <button
             className="text-gray-700 p-2 focus:outline-none md:hidden"
@@ -67,22 +70,42 @@ export default function DashboardLayout() {
             </svg>
           </button>
 
-          <h1 className="text-xl font-semibold">Dashboard</h1>
+          <div className="px-6">
+            <h1 className="text-xl font-semibold flex gap-3">
+              {" "}
+              <div className="mt-1">
+                <MdDashboard />
+              </div>{" "}
+              Dashboard
+            </h1>
+          </div>
 
           {/* Logout Button */}
-          <Button onClick={handleLogOut} className=" font-medium ">
-            Logout
-          </Button>
+          <div
+            onClick={handleLogOut}
+            className=" font-black text-3xl mx-6 cursor-pointer p-2 hover:bg-black rounded hover:text-white"
+          >
+            <IoIosLogOut />
+          </div>
         </div>
-          
+
         {/* ✅ Scrollable Content */}
-        <div className="flex-1 hidden md:block h-full bg-gray-100 w-full overflow-auto px-4">
+        <div className="flex-1 hidden md:block h-full bg-gray-100 w-full overflow-auto px-4 py-4">
           <Outlet />
+        </div>
+        {/* copyright */}
+        <div className=" border-t border-gray-700 py-4 text-center text-base  bg-gray-100 px-10">
+          &copy; {new Date().getFullYear()} Bike Shop. All rights reserved.
         </div>
       </div>
-        <div className="flex-1 block mt-10  md:hidden h-full bg-gray-100 w-full overflow-auto p-4">
-          <Outlet />
+      <div className="flex-1 block mt-10  md:hidden h-full bg-gray-100 w-full overflow-auto p-4">
+        <Outlet />
+
+        {/* copyright */}
+        <div className="bg-gray-100 px-6 border-t border-gray-700 py-4 text-center text-base">
+          &copy; {new Date().getFullYear()} Bike Shop. All rights reserved.
         </div>
+      </div>
     </div>
   );
 }

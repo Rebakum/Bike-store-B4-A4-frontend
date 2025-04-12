@@ -10,11 +10,6 @@ const BikeService = () => {
         <h2 className="text-4xl font-extrabold leading-tight text-center text-gray-900 md:text-5xl">
           Professional Bike Services
         </h2>
-        <div className="flex items-center justify-center mt-2">
-          <div className="w-12 h-0.5 bg-teal-700 mr-2"></div>
-          <div className="w-3 h-3 rotate-45 bg-teal-700"></div>
-          <div className="w-12 h-0.5 bg-teal-700 ml-2"></div>
-        </div>
         <p className="max-w-2xl mx-auto mt-4 text-lg text-center text-gray-500">
           Premium bike maintenance, repairs, and customizations handled by
           experienced mechanics — built for riders who expect the best.
