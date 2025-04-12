@@ -38,7 +38,7 @@ export default function BikeDesign() {
             deals and get riding today.
           </p>
           <h3 className="text-2xl font-bold uppercase">
-            Now At <span className="text-[#f9aa00] text-3xl">$1250</span>
+            Now At <span className="text-3xl bg-red-600 ">$1250</span>
           </h3>
           <p className="mt-1 text-sm font-semibold text-gray-400">
             35% Discount
@@ -46,7 +46,7 @@ export default function BikeDesign() {
 
           <Button
             onClick={() => navigate("/bikes")}
-            className="px-6 py-2 mt-6 bg-[#f9aa00] text-black font-bold hover:bg-[#e89a00]"
+            className="px-6 py-2 mt-6 bg-[red-] text-black font-bold  bg-red-600 rounded-lg shadow-md hover:bg-red-700"
           >
             See More
           </Button>
