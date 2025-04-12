@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import CustomInputField from "@/components/custom-input/CustomInputField";
+import { Helmet } from "react-helmet-async";
 
 const formSchema = z.object({
   name: z
@@ -55,10 +56,23 @@ export default function ContactFormPreview() {
   }
 
   return (
-    <div className="bg-[#000000] text-white py-20 px-4">
+    <div className=" text-black md:py-20">
+      {/* title */}
+      <div className="">
+        <Helmet>
+          <title>Contact Us - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-4">Get in touch</h2>
-        <p className="text-center text-gray-400 max-w-xl mx-auto mb-10">
+        <h2 className="text-4xl font-bold text-center mb-4 uppercase">
+          contact with us
+        </h2>
+        <div className="flex items-center justify-center m-4">
+          <div className="w-12 h-0.5 bg-[#FF0000] mr-2"></div>
+          <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
+          <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
+        </div>
+        <p className="text-center text-black opacity-60 max-w-xl mx-auto mb-10">
           If you would like to find out more about how we can help you, please
           give us a call or drop us an email. We welcome your comments and
           suggestions about this website and/or any other issues you wish to
@@ -67,35 +81,32 @@ export default function ContactFormPreview() {
 
         <div className="grid md:grid-cols-2 gap-10">
           {/* Left Column - Contact Info */}
-          <div className="bg-[#020303] p-8 rounded-md shadow-md space-y-4 text-sm">
+          <div className="p-8 rounded-md space-y-4 text-base">
             <h3 className="text-xl font-semibold mb-2">Contact information</h3>
-            <p className="text-gray-300">
-              If you would like to find out more about how we can help you,
-              please give us a call or drop us an email.
-            </p>
+
             <div className="space-y-2">
               <p className="flex items-center gap-2">
                 <FaPhoneAlt className="text-blue-400" />
-                +8801963213211, +8801963213212, +8801812345643
+                +8801994361085, +8801829662328, +8801914163150, +8801719313438
               </p>
               <p className="flex items-center gap-2">
                 <FaEnvelope className="text-blue-400" />
-                info@dotinternetbd.com
+                bikeShop25@gmail.com
               </p>
               <p className="flex items-start gap-2">
                 <FaMapMarkerAlt className="text-blue-400 mt-1" />
-                350, Rayer Bazar East, (Lalbagh), Mohammadpur
+                DHaka, Bangladesh
               </p>
             </div>
 
             <div className="mt-6 space-y-2">
               <p className="flex items-center gap-2">
                 <FaEnvelope className="text-blue-400" />
-                <strong>Billing enquiries:</strong> accounts@dotinternetbd.com
+                <strong>Billing enquiries:</strong> accounts@bikeShop25.com
               </p>
               <p className="flex items-center gap-2">
                 <FaTools className="text-blue-400" />
-                <strong>Technical enquiries:</strong> noc@dotinternetbd.com
+                <strong>Technical enquiries:</strong> noc@bikeShop25.com
               </p>
               <p className="flex items-center gap-2">
                 <FaEnvelope className="text-blue-400" />
@@ -103,21 +114,21 @@ export default function ContactFormPreview() {
               </p>
               <p className="flex items-center gap-2">
                 <FaUserTie className="text-blue-400" />
-                <strong>Management:</strong> admin@dotinternetbd.com
+                <strong>Management:</strong> admin@bikeShop25.com
               </p>
             </div>
 
             {/* Social Buttons */}
             <div className="flex gap-4 mt-6">
-              <Button className="bg-blue-600 px-4 py-1">Page</Button>
-              <Button className="bg-blue-600 px-4 py-1">Group</Button>
+              <Button className="bg-black px-4 py-1">Page</Button>
+              <Button className="bg-black px-4 py-1">Group</Button>
             </div>
           </div>
 
           {/* Right Column - Form */}
-          <div className="bg-[#ebeef5] p-8 rounded-md shadow-md">
+          <div className="bg-[#ebeef5] p-10 rounded-md shadow-md">
             {/* Contact Form */}
-            <Card className="mx-auto w-full md:w-96 lg:w-96">
+            <Card className="mx-auto w-full">
               <CardHeader>
                 <CardTitle className="text-2xl text-center">
                   Contact Us

@@ -1,9 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Helmet } from "react-helmet-async";
 const NotFoundPage = () => {
   const navigate = useNavigate();
   return (
     <div className="flex items-center justify-center min-h-screen bg-black text-gray-800">
+      {/* title */}
+      <div className="">
+        <Helmet>
+          <title>404 Page Not Found - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       <div className="   bg-black ">
         <div className="text-center p-8 bg-white shadow-lg rounded-2xl">
           <h1 className="text-6xl font-bold text-primary mb-4">404</h1>

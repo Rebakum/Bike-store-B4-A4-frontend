@@ -8,11 +8,11 @@ const MainLayout = () => {
     <div className="flex flex-col min-h-screen ">
       <ScrollToTop />
       {/* navigetions area */}
-      <div className="py-4">
+      <div className="">
         <Navber />
       </div>
       {/* Main content area*/}
-      <div className="flex-grow py-6">
+      <div className="flex-grow md:py-6">
         <Outlet />
       </div>
       {/* footer area */}

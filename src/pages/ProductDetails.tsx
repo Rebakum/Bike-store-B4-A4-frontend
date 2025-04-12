@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { addToCart } from "@/redux/features/cart/cartSlice";
 import { useSpecificProductsQuery } from "@/redux/features/products/productApi";
 import { useAppDispatch } from "@/redux/hooks";
+import { Helmet } from "react-helmet-async";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -32,6 +33,11 @@ const ProductDetails = () => {
 
   return (
     <div className="container px-4 py-8 mx-auto">
+      <div className="">
+        <Helmet>
+          <title>{product.name} - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       <div className="overflow-hidden bg-white rounded-lg shadow-lg">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {/* Left Side - Image */}

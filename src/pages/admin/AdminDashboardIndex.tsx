@@ -10,6 +10,7 @@ import {
   useRevenueQuery,
 } from "@/redux/features/order/orderApi";
 import { useAllProductsQuery } from "@/redux/features/products/productApi";
+import { Helmet } from "react-helmet-async";
 import { FaBox, FaUsers, FaShoppingCart, FaDollarSign } from "react-icons/fa";
 
 const AdminDashboardIndex = () => {
@@ -23,6 +24,12 @@ const AdminDashboardIndex = () => {
 
   return (
     <div className="p-6">
+      {/* title */}
+      <div className="">
+        <Helmet>
+          <title>DeshBoard - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       <h1 className="text-2xl font-bold mb-4">Dashboard Overview</h1>
 
       {/* dashboard Status */}

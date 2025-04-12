@@ -1,8 +1,14 @@
+import { Helmet } from "react-helmet-async";
 import aboutImage from "../assets/image/bike-23.jpg";
 
 export default function About() {
   return (
     <div className="py-12">
+      <div className="">
+        <Helmet>
+          <title>About - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       <div className="container px-4 mx-auto">
         <div className="pb-10">
           <h1 className="mb-3 text-4xl font-bold text-center text-primary">
@@ -60,7 +66,7 @@ export default function About() {
             <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
             <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
           </div>
-          <div className="grid grid-cols-1 gap-8 my-10 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 my-10 lg:grid-cols-3">
             <div className="p-5 text-center border rounded-sm hover:shadow-lg ">
               <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-2xl text-white rounded-full bg-primary">
                 🚴

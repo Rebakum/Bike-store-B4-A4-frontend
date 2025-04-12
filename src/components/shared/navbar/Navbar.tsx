@@ -22,6 +22,7 @@ import { selectCurrentToken } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { verifyToken } from "@/utils/verifyToken";
+import { useEffect, useState } from "react";
 
 const menuList = [
   { id: 1, name: "HOME", link: "/" },
@@ -37,6 +38,22 @@ const Navbar = () => {
 
   const cartData = useAppSelector((state: RootState) => state.cart);
   const location = useLocation();
+  //
+  const [header, setHeader] = useState(false);
+  const scrollHeader = () => {
+    if (window.scrollY >= 20) {
+      setHeader(true);
+    } else {
+      setHeader(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHeader);
+    return () => {
+      window.addEventListener("scroll", scrollHeader);
+    };
+  }, []);
 
   // console.log(cartData,"cartData")
   const isUser = token ? verifyToken(token) : null;
@@ -45,22 +62,35 @@ const Navbar = () => {
       to="/cart"
       className="relative p-2 transition-all duration-300 hover:scale-105"
     >
-      <BiCartAdd className="w-8 h-8 text-black" />
+      <BiCartAdd className={header ? "w-8 h-8 text-white" : "text-black"} />
 
       <span className="absolute px-2 py-1 text-xs text-white bg-red-600 rounded-full -top-2 -right-2">
         {cartData?.items?.length}
       </span>
     </Link>
   );
+
+  //
+
   return (
     <div>
-      <section className="sticky top-0 z-50">
+      <section
+        className={
+          header
+            ? " fixed top-0 z-50 shadow-sm py-6 bgDark text-white w-full"
+            : " shadow-sm bg-white py-4"
+        }
+      >
         <div className="container flex items-center justify-between px-4 mx-auto lg:px-0">
           {/* Left Side - Logo */}
           <div className="flex items-center">
             <Link to={"/"}>
               <div className="text-3xl font-bold text-white capitalize ">
-                <img className="w-56 " src={brand} alt="bike shop brand" />
+                <img
+                  className="w-56  rounded-sm"
+                  src={brand}
+                  alt="bike shop brand"
+                />
               </div>
             </Link>
           </div>
