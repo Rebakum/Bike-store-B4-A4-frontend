@@ -2,6 +2,7 @@ import bikeimg19 from "@/assets/image/bike-19.jpg";
 import bikeimg20 from "@/assets/image/bike-20.jpg";
 import bikeimg21 from "@/assets/image/bike-21.jpg";
 import BikeService from "@/components/home/BikeService";
+import { Helmet } from "react-helmet-async";
 
 export default function Services() {
   const services = [
@@ -27,6 +28,12 @@ export default function Services() {
 
   return (
     <div className="py-20 bg-matteWhite text-darkBlue">
+      {/* title */}
+      <div className="">
+        <Helmet>
+          <title>Services - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       {/* bike service */}
       <div className="">
         {/* Header */}

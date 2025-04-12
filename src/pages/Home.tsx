@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="">
+      {/* title */}
       <div className="">
         <Helmet>
           <title>Home - Bike Shop || Online Delivary</title>

@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import CustomInputField from "@/components/custom-input/CustomInputField";
+import { Helmet } from "react-helmet-async";
 
 const formSchema = z.object({
   name: z
@@ -56,6 +57,12 @@ export default function ContactFormPreview() {
 
   return (
     <div className=" text-black md:py-20">
+      {/* title */}
+      <div className="">
+        <Helmet>
+          <title>Contact Us - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-4 uppercase">
           contact with us
