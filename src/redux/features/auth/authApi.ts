@@ -20,34 +20,46 @@ const authApi = baseApi.injectEndpoints({
       query: (info) => ({
         url: "/auth/logout",
         method: "POST",
-        body:info
+        body: info,
       }),
-      invalidatesTags: ['product','allUser','updateUserPass','order','revenue']
+      invalidatesTags: [
+        "product",
+        "allUser",
+        "updateUserPass",
+        "order",
+        "revenue",
+      ],
     }),
     updateProfile: builder.mutation({
       query: (data) => ({
-        url: "/auth/update-profile",
+        url: "/user/update-profile",
         method: "PATCH",
-        body:data
+        body: data,
       }),
-      invalidatesTags:['updateUserPass']
+      invalidatesTags: ["updateUserPass"],
     }),
     updatePassword: builder.mutation({
       query: (data) => ({
         url: "/auth/update-password",
         method: "PATCH",
-        body:data
+        body: data,
       }),
-      
     }),
     authMe: builder.query({
       query: () => ({
         url: "/auth/me",
         method: "GET",
       }),
-    providesTags:['updateUserPass']
+      providesTags: ["updateUserPass"],
     }),
   }),
 });
 
-export const {useLoginMutation,useLogOutMutation,useSignUpMutation,useAuthMeQuery,useUpdateProfileMutation,useUpdatePasswordMutation}=authApi
+export const {
+  useLoginMutation,
+  useLogOutMutation,
+  useSignUpMutation,
+  useAuthMeQuery,
+  useUpdateProfileMutation,
+  useUpdatePasswordMutation,
+} = authApi;
