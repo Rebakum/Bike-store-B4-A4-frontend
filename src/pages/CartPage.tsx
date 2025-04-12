@@ -67,7 +67,7 @@ const CartPage = () => {
               </div>
               <div>
                 <span className="font-semibold text-lg">
-                  $ {item.price.toFixed(2)}
+                  BDT {item.price.toFixed(2)}
                 </span>
               </div>
               <div>
@@ -102,7 +102,7 @@ const CartPage = () => {
           </div> */}
           <div className="flex justify-between font-bold text-lg mb-4">
             <span className="text-xl">Total Price:</span>
-            <span className="text-2xl">Tk.{cartData?.totalPrice}</span>
+            <span className="text-2xl">BDT.{cartData?.totalPrice}</span>
           </div>
           {cartData?.items.length > 0 && (
             <Button
