@@ -46,7 +46,7 @@ export default function BikeDesign() {
 
           <Button
             onClick={() => navigate("/bikes")}
-            className="px-6 py-2 mt-6 bg-[red-] text-black font-bold  bg-red-600 rounded-lg shadow-md hover:bg-red-700"
+            className="px-6 py-2 mt-6 bg-[red-] text-white font-bold  bg-red-600 rounded-lg shadow-md hover:bg-red-700"
           >
             See More
           </Button>
