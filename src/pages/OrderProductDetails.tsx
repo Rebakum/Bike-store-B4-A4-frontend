@@ -15,9 +15,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { IOrderResponse, TProductDetails } from "@/types/types";
-
+import { TbListDetails } from "react-icons/tb";
 // Type for a single product
-
 
 // Type for an array of ordered items
 export type OrderItems = {
@@ -37,7 +36,9 @@ export function OrderProductDetails({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="w-[120px] bg-slate-500">Details</Button>
+        <Button className="w-[120px] bg-black">
+          <TbListDetails />
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
@@ -70,7 +71,10 @@ export function OrderProductDetails({
                   <TableCell>{item?.product?.brand}</TableCell>
                   <TableCell>tk {item?.product?.price}</TableCell>
                   <TableCell>{item?.quantity}</TableCell>
-                  <TableCell> tk {item?.quantity * item?.product?.price }</TableCell>
+                  <TableCell>
+                    {" "}
+                    tk {item?.quantity * item?.product?.price}
+                  </TableCell>
                   <TableCell>
                     {item?.product?.inStock ? (
                       <span className="text-green-500">Yes</span>

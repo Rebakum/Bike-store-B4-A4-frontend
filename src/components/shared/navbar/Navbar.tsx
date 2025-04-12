@@ -125,11 +125,6 @@ const Navbar = () => {
                         </Button>
                       </Link>
                     )}
-                    <Link to="/login">
-                      <Button className="h-10 text-lg font-medium text-black capitalize bg-white shadow-none hover:shadow-md hover:text-white">
-                        Log in
-                      </Button>
-                    </Link>
                   </div>
                   <Button variant="outline" size="icon">
                     <Menu className="size-4" />
@@ -140,7 +135,11 @@ const Navbar = () => {
                 <SheetHeader>
                   <SheetTitle>
                     <div className="flex items-center gap-2">
-                      <span className="text-lg font-semibold">Bike Shope</span>
+                      <img
+                        className="w-56 "
+                        src={brand}
+                        alt="bike shop brand"
+                      />
                     </div>
                   </SheetTitle>
                 </SheetHeader>

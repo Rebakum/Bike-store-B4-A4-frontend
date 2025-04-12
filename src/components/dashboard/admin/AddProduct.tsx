@@ -32,7 +32,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useCreateProductMutation } from "@/redux/features/products/productApi";
 import { useState } from "react";
 import { toast } from "sonner";
-
+import { GrChapterAdd } from "react-icons/gr";
 const formSchema = z.object({
   name: z.string().min(1, "Name is required."),
   image: z.string().optional(),
@@ -123,7 +123,12 @@ const AddProduct = () => {
           onClick={() => setOpen(true)}
           className="px-3 py-2 text-white rounded bg-primary-black hover:shadow-md "
         >
-          Add Product
+          <div className=" flex gap-2 font-semibold text-base">
+            <div className=" mt-1">
+              <GrChapterAdd />
+            </div>
+            <div className="">Add Product</div>
+          </div>
         </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
