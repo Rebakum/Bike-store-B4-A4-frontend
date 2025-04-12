@@ -24,7 +24,7 @@ const Home = () => {
           </p>
         </div>
         <NewProducts />
-        <div className="flex justify-center my-10">
+        <div className="flex justify-center py-20">
           <Link to="/bikes">
             <button className="px-4 py-2 text-lg font-semibold duration-300 border-2 rounded-md pb text-black border-black hover:border-none hover:bg-primary-red hover:text-white">
               VIEW ALL
