@@ -54,7 +54,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <section className="sticky top-0 z-50">
+      <section className="sticky top-0 z-50 shadow-sm py-4">
         <div className="container flex items-center justify-between px-4 mx-auto lg:px-0">
           {/* Left Side - Logo */}
           <div className="flex items-center">
