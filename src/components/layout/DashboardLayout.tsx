@@ -24,7 +24,7 @@ export default function DashboardLayout() {
       {/* Sidebar */}
       <div
         className={`fixed inset-y-0 left-0 shadow z-50 bgDark text-white transition-all duration-300 overflow-y-auto 
-          ${isSidebarOpen ? "w-56" : "w-0"} md:w-56 md:relative`}
+          ${isSidebarOpen ? "w-80" : "w-0"} md:w-80 md:relative`}
       >
         <div className="p-4 text-lg bg-white font-semibold border-b border-gray-700">
           <Link to="/" className="flex  justify-center items-center gap-3">
