@@ -13,13 +13,18 @@ const Home = () => {
           <h2 className="text-4xl font-extrabold text-gray-900 md:text-5xl">
             Featured Bikes
           </h2>
+          <div className="flex items-center justify-center mt-2">
+            <div className="w-12 h-0.5 bg-teal-700 mr-2"></div>
+            <div className="w-3 h-3 rotate-45 bg-teal-700"></div>
+            <div className="w-12 h-0.5 bg-teal-700 ml-2"></div>
+          </div>
           <p className="max-w-xl mx-auto mt-3 text-lg text-gray-500">
             Discover our top-rated bikes – handpicked for performance, style,
             and innovation.
           </p>
         </div>
         <NewProducts />
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center my-10">
           <Link to="/bikes">
             <button className="px-3 text-lg font-semibold duration-300 border-2 rounded-md pb text-primary-red border-primary-red hover:bg-primary-red hover:text-white">
               VIEW ALL

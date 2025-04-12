@@ -28,10 +28,15 @@ export default function Services() {
     <div className="py-20 bg-matteWhite text-darkBlue">
       {/* Header */}
       <div className="text-center">
-        <h1 className="py-5 text-4xl font-bold text-crimsonRed animate-fade-in">
+        <h1 className="py-3 text-4xl font-bold text-crimsonRed animate-fade-in">
           Our Services
         </h1>
-        <p className="w-1/2 mx-auto mb-20 text-lg text-gray-600">
+        <div className="flex items-center justify-center mt-2">
+          <div className="w-12 h-0.5 bg-teal-700 mr-2"></div>
+          <div className="w-3 h-3 rotate-45 bg-teal-700"></div>
+          <div className="w-12 h-0.5 bg-teal-700 ml-2"></div>
+        </div>
+        <p className="w-1/2 mx-auto mt-5 mb-10 text-lg text-gray-600">
           We provide the best solutions for your biking needs. Whether you're
           looking for repairs, customizations, or rentals, we’ve got you
           covered.

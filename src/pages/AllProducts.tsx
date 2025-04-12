@@ -64,12 +64,17 @@ export default function AllProducts() {
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="container px-4 mx-auto md:px-0">
-        <h1 className="py-4 text-4xl font-bold text-center text-primary-red">
+        <h1 className="py-3 text-4xl font-bold text-center text-gray-950">
           All Products
         </h1>
+        <div className="flex items-center justify-center mt-2">
+          <div className="w-12 h-0.5 bg-teal-700 mr-2"></div>
+          <div className="w-3 h-3 rotate-45 bg-teal-700"></div>
+          <div className="w-12 h-0.5 bg-teal-700 ml-2"></div>
+        </div>
 
         {/* Search and Filters */}
-        <div className="flex flex-col gap-4 mb-6 md:flex-row">
+        <div className="flex flex-col gap-4 mt-10 mb-6 md:flex-row">
           <input
             type="text"
             name="searchTerm"

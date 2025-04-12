@@ -5,10 +5,15 @@ export default function About() {
     <div className="py-12">
       <div className="container px-4 mx-auto">
         <div className="pb-10">
-          <h1 className="mb-5 text-4xl font-bold text-center text-primary">
+          <h1 className="mb-3 text-4xl font-bold text-center text-primary">
             About Us
           </h1>
-          <p className="max-w-2xl mx-auto leading-relaxed text-center text-gray-600">
+          <div className="flex items-center justify-center mt-2">
+            <div className="w-12 h-0.5 bg-teal-700 mr-2"></div>
+            <div className="w-3 h-3 rotate-45 bg-teal-700"></div>
+            <div className="w-12 h-0.5 bg-teal-700 ml-2"></div>
+          </div>
+          <p className="max-w-2xl mx-auto mt-3 leading-relaxed text-gray-600 text-cente">
             Welcome to our platform! We are a passionate team dedicated to
             delivering high-quality services and creating meaningful digital
             experiences.
@@ -47,11 +52,16 @@ export default function About() {
 
         {/* Why Choose Us Section */}
         <div className="mb-10">
-          <h2 className="mb-6 text-2xl font-semibold text-center text-black">
+          <h2 className="mb-3 text-2xl font-semibold text-center text-black">
             Why Choose Us?
           </h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="text-center">
+          <div className="flex items-center justify-center my-3">
+            <div className="w-12 h-0.5 bg-teal-700 mr-2"></div>
+            <div className="w-3 h-3 rotate-45 bg-teal-700"></div>
+            <div className="w-12 h-0.5 bg-teal-700 ml-2"></div>
+          </div>
+          <div className="grid grid-cols-1 gap-8 my-10 md:grid-cols-3">
+            <div className="p-5 text-center border rounded-sm hover:shadow-lg ">
               <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-2xl text-white rounded-full bg-primary">
                 🚴
               </div>
@@ -64,7 +74,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="text-center">
+            <div className="p-5 text-center border rounded-sm hover:shadow-lg">
               <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-2xl text-white rounded-full bg-primary">
                 🛠
               </div>
@@ -77,7 +87,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="text-center">
+            <div className="p-5 text-center border rounded-sm hover:shadow-lg">
               <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-2xl text-white rounded-full bg-primary">
                 ⭐
               </div>
@@ -90,19 +100,6 @@ export default function About() {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Contact Section */}
-        <div className="text-center">
-          <h2 className="mb-4 text-2xl font-semibold text-secondary">
-            Contact Us
-          </h2>
-          <p className="mb-2 text-gray-700">
-            📍 Address: Uttora, Dhaka, Bangladesh
-          </p>
-          <p className="mb-2 text-gray-700">📧 Email: bikeshop@gmail.com</p>
-          <p className="text-gray-700">📞 Phone: (+880) 1914163150</p>
-          <p className="text-gray-700">📞 Phone: (+880) 1829662328</p>
         </div>
       </div>
     </div>
