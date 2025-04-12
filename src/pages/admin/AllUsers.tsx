@@ -6,6 +6,7 @@ import {
 } from "@/redux/features/Admin/allUsers/allUserApi";
 
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 import { FaTimes, FaCheck } from "react-icons/fa";
 import { toast } from "sonner";
@@ -44,6 +45,12 @@ export function AllUsers() {
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      {/* title */}
+      <div className="">
+        <Helmet>
+          <title>Manege User - Bike Shop || Online Delivary</title>
+        </Helmet>
+      </div>
       <div className="flex justify-between items-center pr-1">
         <input
           className="p-2 my-3 border-black border-2 text-black rounded-md"
