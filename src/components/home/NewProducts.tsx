@@ -43,7 +43,7 @@ const NewProducts = () => {
             <p className="my-3 text-sm text-gray-600">Model: {product.model}</p>
             <p className="text-lg font-medium text-gray-800">
               Price:{" "}
-              <span className="font-bold text-primary-red uppercase">
+              <span className="font-bold text-[#f40707] uppercase">
                 {product.price} bdt
               </span>
             </p>
@@ -62,7 +62,7 @@ const NewProducts = () => {
                 className={`py-2 px-4 rounded-md ${
                   !product?.inStock
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-primary-red hover:bg-green-600"
+                    : "bg-[#f40707] hover:bg-green-600"
                 } transition-all`}
                 disabled={!product?.inStock}
                 onClick={() =>

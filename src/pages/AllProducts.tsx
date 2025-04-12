@@ -68,9 +68,9 @@ export default function AllProducts() {
           All Products
         </h1>
         <div className="flex items-center justify-center mt-2">
-          <div className="w-12 h-0.5 bg-teal-700 mr-2"></div>
-          <div className="w-3 h-3 rotate-45 bg-teal-700"></div>
-          <div className="w-12 h-0.5 bg-teal-700 ml-2"></div>
+          <div className="w-12 h-0.5 bg-[#FF0000] mr-2"></div>
+          <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
+          <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
         </div>
 
         {/* Search and Filters */}
@@ -146,7 +146,7 @@ export default function AllProducts() {
                   className={`absolute top-2 left-2 px-3 py-1 text-xs font-semibold ${
                     product?.inStock
                       ? "bg-green-600 text-white"
-                      : "bg-red-600 text-white"
+                      : "bg-[#f40707] text-white"
                   }`}
                 >
                   {product.inStock ? "In Stock" : "Out of Stock"}
@@ -160,7 +160,7 @@ export default function AllProducts() {
                 </p>
                 <p className="text-lg font-medium text-gray-800">
                   Price:{" "}
-                  <span className="font-bold text-primary-red uppercase">
+                  <span className="font-bold text-[#f40707] uppercase">
                     {product.price} bdt
                   </span>
                 </p>
