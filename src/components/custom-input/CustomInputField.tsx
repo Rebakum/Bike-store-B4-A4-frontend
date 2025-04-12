@@ -1,5 +1,11 @@
 import { Control, FieldValues, Path } from "react-hook-form";
-import { FormField, FormControl, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  FormField,
+  FormControl,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
 
@@ -15,7 +21,7 @@ const CustomInputField = <T extends FieldValues>({
   name,
   label,
   placeholder,
-  type ,
+  type,
   control,
 }: InputFieldProps<T>) => {
   return (
@@ -43,7 +49,9 @@ const CustomInputField = <T extends FieldValues>({
               />
             )}
           </FormControl>
-          {fieldState.error && <FormMessage>{fieldState.error.message}</FormMessage>}
+          {fieldState.error && (
+            <FormMessage>{fieldState.error.message}</FormMessage>
+          )}
         </FormItem>
       )}
     />
