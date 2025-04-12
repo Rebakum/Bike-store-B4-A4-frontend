@@ -130,7 +130,7 @@ export default function AllProducts() {
         </div>
 
         {/* Product Cards */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:px-20 px-4 py-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4  px-4 py-4">
           {data?.data?.map((product) => (
             <div
               key={product?._id}

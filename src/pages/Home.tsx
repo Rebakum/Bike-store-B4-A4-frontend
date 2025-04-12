@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="bg-gray-100">
+    <div className="">
       <Banner />
       <div className="container px-4 mx-auto md:px-0">
         <div className="py-12 text-center">

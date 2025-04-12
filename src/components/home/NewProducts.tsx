@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { BiCart } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import LoadingSkelton from "../shared/LoadingSkelton";
-
+import { TbListDetails } from "react-icons/tb";
 const NewProducts = () => {
   const { data, isLoading } = useAllProductsQuery(undefined);
   const dispatch = useAppDispatch();
@@ -15,19 +15,18 @@ const NewProducts = () => {
     return <LoadingSkelton />;
   }
   return (
-    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {data?.data?.slice(0, 8)?.map((product) => (
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4  px-4 py-4">
+      {data?.data?.map((product) => (
         <div
           key={product?._id}
           className="p-4 overflow-hidden transition-all bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl"
         >
           <div className="relative">
             <img
-              src={product?.image}
-              alt={product?.name}
-              className="w-full h-56 object-cover rounded-md hover:scale-[1.05] transition-all duration-300 cursor-pointer"
+              src={product.image}
+              alt={product.name}
+              className="w-full h-44 object-cover rounded-md hover:scale-[1.05] transition-all duration-300 cursor-pointer"
             />
-            {/* Stock Badge */}
             <Badge
               className={`absolute top-2 left-2 px-3 py-1 text-xs font-semibold ${
                 product?.inStock
@@ -44,25 +43,26 @@ const NewProducts = () => {
             <p className="my-3 text-sm text-gray-600">Model: {product.model}</p>
             <p className="text-lg font-medium text-gray-800">
               Price:{" "}
-              <span className="font-bold text-primary-red">
-                {product.price} tk
+              <span className="font-bold text-primary-red uppercase">
+                {product.price} bdt
               </span>
             </p>
 
             <div className="flex gap-2 mt-3">
-              {/* View Details Button */}
               <Link to={`/details/${product._id}`} className="flex-1">
-                <button className="w-full py-2 text-sm font-semibold text-white transition-all bg-blue-600 rounded-md hover:bg-blue-700">
-                  View Details
+                <button className="w-full py-2 text-base  font-bold uppercase text-white transition-all bg-black border-2 rounded-md hover:bg-white hover:text-black flex gap-4 justify-center ">
+                  <div className="mt-1">
+                    <TbListDetails />
+                  </div>
+                  <div className="">View Details</div>
                 </button>
               </Link>
 
-              {/* Add to Cart Button */}
               <button
-                className={`p-2 rounded-md ${
+                className={`py-2 px-4 rounded-md ${
                   !product?.inStock
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-primary-red hover:bg-red-700"
+                    : "bg-primary-red hover:bg-green-600"
                 } transition-all`}
                 disabled={!product?.inStock}
                 onClick={() =>
