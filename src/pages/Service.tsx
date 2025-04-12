@@ -32,9 +32,9 @@ export default function Services() {
           Our Services
         </h1>
         <div className="flex items-center justify-center mt-2">
-          <div className="w-12 h-0.5 bg-teal-700 mr-2"></div>
-          <div className="w-3 h-3 rotate-45 bg-teal-700"></div>
-          <div className="w-12 h-0.5 bg-teal-700 ml-2"></div>
+          <div className="w-12 h-0.5 bg-[#FF0000] mr-2"></div>
+          <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
+          <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
         </div>
         <p className="w-1/2 mx-auto mt-5 mb-10 text-lg text-gray-600">
           We provide the best solutions for your biking needs. Whether you're

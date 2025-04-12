@@ -9,9 +9,9 @@ export default function About() {
             About Us
           </h1>
           <div className="flex items-center justify-center mt-2">
-            <div className="w-12 h-0.5 bg-teal-700 mr-2"></div>
-            <div className="w-3 h-3 rotate-45 bg-teal-700"></div>
-            <div className="w-12 h-0.5 bg-teal-700 ml-2"></div>
+            <div className="w-12 h-0.5 bg-[#FF0000] mr-2"></div>
+            <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
+            <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
           </div>
           <p className="max-w-2xl mx-auto mt-3 leading-relaxed text-gray-600 text-cente">
             Welcome to our platform! We are a passionate team dedicated to
@@ -56,9 +56,9 @@ export default function About() {
             Why Choose Us?
           </h2>
           <div className="flex items-center justify-center my-3">
-            <div className="w-12 h-0.5 bg-teal-700 mr-2"></div>
-            <div className="w-3 h-3 rotate-45 bg-teal-700"></div>
-            <div className="w-12 h-0.5 bg-teal-700 ml-2"></div>
+            <div className="w-12 h-0.5 bg-[#FF0000] mr-2"></div>
+            <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
+            <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
           </div>
           <div className="grid grid-cols-1 gap-8 my-10 md:grid-cols-3">
             <div className="p-5 text-center border rounded-sm hover:shadow-lg ">
