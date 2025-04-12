@@ -44,7 +44,7 @@ export default function Services() {
       </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 gap-8 px-6 mt-10 md:grid-cols-2 lg:grid-cols-3 lg:px-12">
+      <div className="grid grid-cols-1 gap-8 px-10 mt-10 md:grid-cols-2 lg:grid-cols-3 lg:px-12">
         {services.map((service, index) => (
           <div
             key={index}
@@ -72,11 +72,11 @@ export default function Services() {
       </div>
 
       {/* Call-to-Action Banner */}
-      <div className="px-6 py-8 mt-16 text-center text-white rounded-lg shadow-lg bg-darkBlue lg:px-12 md:flex md:justify-between md:items-center">
-        <h3 className="text-2xl font-bold">
+      <div className="px-6 py-8 mt-16 text-center rounded-lg shadow-lg bg-darkBlue lg:px-12 md:flex md:justify-between md:items-center">
+        <h3 className="text-2xl font-bold text-black">
           Ready to transform your biking experience?
         </h3>
-        <button className="px-6 py-3 mt-4 font-medium transition-all duration-300 rounded-lg md:mt-0 bg-neonGreen text-darkBlue hover:bg-crimsonRed hover:text-white">
+        <button className="px-6 py-3 mt-4 font-medium transition-all duration-300 bg-red-600 rounded-lg md:mt-0 hover:text-white text-darkBlue hover:bg-crimsonRed hover:bg-red-400">
           Contact Us Now
         </button>
       </div>
