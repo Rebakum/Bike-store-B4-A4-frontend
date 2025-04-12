@@ -137,7 +137,7 @@ export default function AllProducts() {
         </div>
 
         {/* Product Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-20 px-4 md:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 py-20 px-4 md:px-8">
           {data?.data?.map((product) => (
             <div
               key={product?._id}
@@ -172,9 +172,9 @@ export default function AllProducts() {
                   </span>
                 </p>
 
-                <div className="flex gap-2 mt-3">
+                <div className="flex gap-2 py-2">
                   <Link to={`/details/${product._id}`} className="flex-1">
-                    <button className="flex justify-center w-full gap-4 py-2 text-base font-bold text-white uppercase transition-all bg-black border-2 rounded-md hover:bg-white hover:text-black ">
+                    <button className="flex justify-center w-full gap-4 py-1 text-sm font-medium text-black capitalize transition-all bg-white border-2 rounded-md hover:bg-black hover:text-white ">
                       <div className="mt-1">
                         <TbListDetails />
                       </div>
