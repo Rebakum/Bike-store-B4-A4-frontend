@@ -97,7 +97,7 @@ const Navbar = () => {
 
           {/* Middle - Navigation Links */}
           <nav className="items-center hidden gap-6 lg:flex">
-            <ul className="flex gap-6 font-bold text-xl">
+            <ul className="flex gap-6 font-bold text-base">
               {menuList.map((item) => (
                 <li className="relative group" key={item.id}>
                   <Link to={item.link}>
