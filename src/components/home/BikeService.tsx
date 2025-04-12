@@ -6,7 +6,7 @@ const BikeService = () => {
 
   return (
     <section className="py-20 bg-white">
-      <div className="container px-4 mx-auto lg:py-10">
+      <div className="container px-10 mx-auto lg:py-10">
         <h2 className="text-4xl font-extrabold leading-tight text-center text-gray-900 md:text-5xl">
           Professional Bike Services
         </h2>
@@ -20,11 +20,11 @@ const BikeService = () => {
           experienced mechanics — built for riders who expect the best.
         </p>
 
-        <div className="grid items-center grid-cols-1 gap-12 py-10 md:grid-cols-2">
+        <div className="flex items-start gap-5 my-10">
           {/* Left - Content */}
-          <div className="space-y-6">
+          <div className="space-y-5">
             {/* Service 1 */}
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-5 p-3 border rounded-sm hover:shadow-lg">
               <span className="text-xl font-bold text-red-500">01.</span>
               <div>
                 <h4 className="text-lg font-semibold text-gray-900">
@@ -38,7 +38,7 @@ const BikeService = () => {
             </div>
 
             {/* Service 2 */}
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 p-3 border rounded-sm hover:shadow-lg">
               <span className="text-xl font-bold text-red-500">02.</span>
               <div>
                 <h4 className="text-lg font-semibold text-gray-900">
@@ -52,7 +52,7 @@ const BikeService = () => {
             </div>
 
             {/* Service 3 */}
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 p-3 border rounded-sm hover:shadow-lg">
               <span className="text-xl font-bold text-red-500">03.</span>
               <div>
                 <h4 className="text-lg font-semibold text-gray-900">
@@ -66,7 +66,7 @@ const BikeService = () => {
             </div>
 
             {/* Service 4 */}
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 p-3 border rounded-sm hover:shadow-lg">
               <span className="text-xl font-bold text-red-500">04.</span>
               <div>
                 <h4 className="text-lg font-semibold text-gray-900">
@@ -88,7 +88,7 @@ const BikeService = () => {
           </div>
 
           {/* Right - Image */}
-          <div className="flex justify-center py-10 ">
+          <div className="flex justify-center ">
             <img
               src={bikeImage7}
               alt="Bike Service"
