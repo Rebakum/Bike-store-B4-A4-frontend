@@ -33,7 +33,7 @@ const AdminDashboardIndex = () => {
       <h1 className="text-2xl font-bold mb-4">Dashboard Overview</h1>
 
       {/* dashboard Status */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {productLoading || orderLoading || revenueLoading || userLoading ? (
           Array.from({ length: 4 }).map((_, index) => (
             <Skeleton key={index} className="h-32 w-full rounded-lg" />
