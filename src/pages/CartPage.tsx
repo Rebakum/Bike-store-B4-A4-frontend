@@ -99,7 +99,7 @@ const CartPage = () => {
 
         {/* Right Side: Price Summary (Fixed Sidebar) */}
         <div className="lg:col-span-3 relative">
-          <div className="bg-white rounded-lg shadow-md p-6 sticky top-32">
+          <div className="bg-white rounded-lg shadow-md p-2 sticky top-32">
             <h2 className="text-xl font-bold mb-4">Summary</h2>
             <div className="flex justify-between mb-2">
               <span className="text-xl">Total Product:</span>
@@ -111,7 +111,7 @@ const CartPage = () => {
           </div> */}
             <div className="flex justify-between font-bold text-lg mb-4">
               <span className="text-xl">Total Price:</span>
-              <span className="text-2xl">BDT.{cartData?.totalPrice}</span>
+              <span className="text-xl px-2">BDT.{cartData?.totalPrice}</span>
             </div>
             {cartData?.items.length > 0 && (
               <Button
