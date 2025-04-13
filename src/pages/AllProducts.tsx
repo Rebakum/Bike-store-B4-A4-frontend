@@ -187,7 +187,7 @@ export default function AllProducts() {
                   <button
                     className={`py-2 px-4 rounded-md ${
                       !product?.inStock
-                        ? "bg-gray-400 cursor-not-allowed"
+                        ? "bg-gray-400 cursor-not-allowed flex justify-center w-fit gap-2 py-2 px-4 text-sm font-medium text-white"
                         : "flex justify-center w-fit gap-2 py-2 px-4 text-sm font-medium text-black transition-all bg-white border-2 hover:bg-black hover:text-white"
                     } transition-all`}
                     disabled={!product?.inStock}
