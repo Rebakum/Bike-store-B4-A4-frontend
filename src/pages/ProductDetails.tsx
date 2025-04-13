@@ -75,7 +75,7 @@ const ProductDetails = () => {
             <p className="text-lg font-medium text-gray-600">
               <span className="font-semibold">Price:</span>{" "}
               <span className="text-xl font-bold text-primary-red">
-                {product.price} tk
+                {product.price} BDT
               </span>
             </p>
 

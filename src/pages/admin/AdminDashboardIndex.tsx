@@ -58,7 +58,7 @@ const AdminDashboardIndex = () => {
             <StatsCard
               icon={<FaDollarSign />}
               title="Total Revenue"
-              value={`tk ${revenueData?.data?.totalRevenue || 0}`}
+              value={`BDT ${revenueData?.data?.totalRevenue || 0}`}
             />
           </>
         )}
