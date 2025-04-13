@@ -21,7 +21,7 @@ const NewProducts = () => {
         {data?.data?.map((product) => (
           <div
             key={product?._id}
-            className="card bg-white hover:shadow-sm cursor-pointer  overflow-hidden transition-all text-center"
+            className="card bg-white hover:shadow-lg hover:rounded-md cursor-pointer  overflow-hidden transition-all text-center"
           >
             <div className="relative">
               <img
