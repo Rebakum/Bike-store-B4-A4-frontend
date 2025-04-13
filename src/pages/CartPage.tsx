@@ -24,7 +24,7 @@ const CartPage = () => {
       {/*  */}
       <section className="container mx-auto min-h-[70vh] grid grid-cols-1 lg:grid-cols-12 gap-12 py-6 px-4 md:px-0">
         {/* Left Side: Product List */}
-        <div className="lg:col-span-7 rounded-lg shadow-md p-6">
+        <div className="lg:col-span-9 rounded-lg shadow-md p-6">
           <h2 className="text-xl font-bold mb-4">MY CART</h2>
           {cartData?.items.length > 0 ? (
             cartData?.items?.map((item) => (
@@ -98,20 +98,20 @@ const CartPage = () => {
         </div>
 
         {/* Right Side: Price Summary (Fixed Sidebar) */}
-        <div className="lg:col-span-5 relative">
-          <div className="bg-white rounded-lg shadow-md p-2 sticky top-32">
+        <div className="lg:col-span-3 relative">
+          <div className="bg-white rounded-lg shadow-md grid gap-2 p-4 sticky">
             <h2 className="text-xl font-bold mb-4">Summary</h2>
             <div className="flex justify-between mb-2">
-              <span className="text-xl">Total Product:</span>
-              <span className="text-2xl">{cartData?.totalQuantity}</span>
+              <span className="text-base">Total Product:</span>
+              <span className="text-base">{cartData?.totalQuantity}</span>
             </div>
             {/* <div className="flex justify-between mb-2">
             <span>Tax (10%):</span>
             <span>${(totalPrice * 0.1).toFixed(2)}</span>
           </div> */}
-            <div className="flex justify-between font-bold text-lg mb-4">
-              <span className="text-xl">Total Price:</span>
-              <span className="text-xl px-2">BDT.{cartData?.totalPrice}</span>
+            <div className="flex justify-between font-bold text-base mb-4">
+              <span className="text-base">Total Price:</span>
+              <span className="text-base px-2">BDT.{cartData?.totalPrice}</span>
             </div>
             {cartData?.items.length > 0 && (
               <Button
