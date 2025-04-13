@@ -27,7 +27,7 @@ const AdminDashboardIndex = () => {
       {/* title */}
       <div className="">
         <Helmet>
-          <title>DeshBoard - Bike Shop || Online Delivary</title>
+          <title>DashBoard - Bike Shop || Online Delivary</title>
         </Helmet>
       </div>
       <h1 className="text-2xl font-bold mb-4">Dashboard Overview</h1>
